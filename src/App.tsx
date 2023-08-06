@@ -1,24 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { DrawField } from './sudokuField';
+import { DrawKeyboard } from './keyboard';
+import { generateField } from './field';
 
 function App() {
+  var field: number[][] = generateField()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DrawField field={field}/>
+      <DrawKeyboard />
     </div>
   );
 }
