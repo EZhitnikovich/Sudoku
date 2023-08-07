@@ -1,4 +1,4 @@
-.btn{
+.btn {
     height: 35px;
     width: 35px;
     margin: 5px;
@@ -8,10 +8,10 @@
     font-weight: bold;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: lightgray;
 }
 
-.btn.active{
+.btn.active {
     background-color: aqua;
 }
