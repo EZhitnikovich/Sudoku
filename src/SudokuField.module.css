@@ -19,3 +19,7 @@ tr:first-child td {
 tr:nth-child(3n) td {
   border-bottom:solid ;
 }
+
+.active{
+  background-color: lightblue;
+}

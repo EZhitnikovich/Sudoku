@@ -1,0 +1,17 @@
+.btn{
+    height: 35px;
+    width: 35px;
+    margin: 5px;
+    border: 2px solid black;
+    background: none;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus{
+    background-color: lightgray;
+}
+
+.btn.active{
+    background-color: aqua;
+}
