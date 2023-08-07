@@ -8,8 +8,7 @@
     font-weight: bold;
 }
 
-.btn:hover,
-.btn:focus{
+.btn:hover{
     background-color: lightgray;
 }
 
