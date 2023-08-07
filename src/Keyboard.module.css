@@ -5,6 +5,7 @@
     border: 2px solid black;
     background: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .btn:hover,

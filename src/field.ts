@@ -14,6 +14,41 @@ export function generateField(): number[][] {
     return field
 }
 
+export function generatePlayableField(field:number[][]): number[][]{
+    var playableField:number[][] = field.map(function(arr) {
+        return arr.slice();
+    })
+
+    for (let i = 0; i < playableField.length; i++) {
+        for(let j = 0; j < playableField[i].length; j++){
+            if(generateRandom(1, -1) == 1)
+                playableField[i][j] = 0
+            
+        }
+    }
+
+    return playableField
+}
+
+export function generateMask(playableField:number[][]): number[][]{
+    var mask : number[][] = playableField.map(function(arr) {
+        return arr.slice();
+    })
+
+    for (let i = 0; i < playableField.length; i++) {
+        for(let j = 0; j < playableField[i].length; j++){
+            if(playableField[i][j] === 0){
+                mask[i][j] = 0
+            }
+            else{
+                mask[i][j] = 1
+            }
+        }
+    }
+
+    return mask
+}
+
 function shuffleRows(field:number[][]) : number[][]{
     randomSwapN(field)
     return field

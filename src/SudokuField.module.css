@@ -6,6 +6,7 @@ td {
   width:40px;
   border:1px solid;
   text-align:center;
+  font-weight: bold;
 }
 td:first-child {
   border-left:solid;
@@ -20,6 +21,10 @@ tr:nth-child(3n) td {
   border-bottom:solid ;
 }
 
-.active{
+.blocked{
   background-color: lightblue;
+}
+
+.active{
+  background-color: lightsalmon;
 }
