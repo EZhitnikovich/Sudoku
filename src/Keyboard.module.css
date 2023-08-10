@@ -8,10 +8,20 @@
     font-weight: bold;
 }
 
+.btn.complete {
+    background: red;
+    color: white;
+}
+
 .btn:hover {
     background-color: lightgray;
 }
 
 .btn.active {
     background-color: aqua;
+}
+
+.btn.active_complete {
+    color: white;
+    background-color: blueviolet;
 }

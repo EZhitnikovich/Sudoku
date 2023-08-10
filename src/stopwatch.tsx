@@ -16,5 +16,5 @@ export function Stopwatch({ time, setTime, isRunning }: StopwatchProps) {
         return () => clearInterval(intervalId);
     }, [isRunning, time]);
 
-    return <div className={styles.timer}>{("0" + Math.floor((time / 60) % 60)).slice(-2)}:{("0" + Math.floor(time % 60)).slice(-2)}</div>
+    return <div className={styles.timer}>{("0" + Math.floor((time / 60) % 60)).slice(-2)}:{("0" + Math.floor(time % 60)).slice(-2)} {!isRunning ? "Win" : ""}</div>
 }
