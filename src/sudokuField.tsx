@@ -2,17 +2,18 @@ import styles from "./SudokuField.module.css";
 
 type FieldProps = {
   field: number[][];
+  playableField: number[][];
   selectedNumber: number;
   mask: number[][];
   winCheck: ()=>void
 };
 
-export function DrawField({ field, selectedNumber, mask, winCheck }: FieldProps) {
+export function DrawField({field, playableField, selectedNumber, mask, winCheck }: FieldProps) {
   return (
     <div>
       <table className={styles.table}>
         <tbody>
-          {field.map((row, rowIndex) => (
+          {playableField.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, colIndex) => {
                 const selected = cell === selectedNumber;
@@ -31,10 +32,15 @@ export function DrawField({ field, selectedNumber, mask, winCheck }: FieldProps)
                   return (
                     <td
                       className={
-                        selected && field[rowIndex][colIndex] !== 0 ? styles.active : ""
+                        selected && playableField[rowIndex][colIndex] !== 0 ? styles.active : ""
                       }
                       onClick={() => {
-                        field[rowIndex][colIndex] = selectedNumber
+                        if(selectedNumber !== -1){
+                          playableField[rowIndex][colIndex] = selectedNumber
+                        }
+                        else{
+                          playableField[rowIndex][colIndex] = field[rowIndex][colIndex]
+                        }
                         winCheck()
                       }}
                       key={colIndex}

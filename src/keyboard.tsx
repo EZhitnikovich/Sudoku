@@ -1,6 +1,6 @@
 import styles from "./Keyboard.module.css"
 
-const BUTTOS = Array.from({ length: 10 }, (_, i) => i)
+const BUTTOS = Array.from({ length: 11 }, (_, i) => --i)
 
 type KeyboardProps = {
     selectedNumber: number
@@ -23,7 +23,7 @@ export function DrawKeyboard({ selectedNumber, setSelectedNumber, playableField 
                 complete = arr.filter(i=> i === x).length >= 9
             }
             return <button onClick={() => setSelectedNumber(x)} className={`${styles.btn}
-            ${selected && complete ? styles.active_complete : complete ? styles.complete : selected ? styles.active : ""}`} key={x}>{x === 0 ? "♦" : x}</button>
+            ${selected && complete ? styles.active_complete : complete ? styles.complete : selected ? styles.active : ""}`} key={x}>{x === -1 ? "?" : x===0 ? "♦": x}</button>
         })}
     </div>
 }
