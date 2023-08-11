@@ -20,10 +20,9 @@ export function generateField(): number[][] {
   return field;
 }
 
-export function generatePlayableField(grid: number[][], difficulty: number = 7): number[][] {
+export function generatePlayableField(grid: number[][], difficulty: number = 10, attempt: number = 7): number[][] {
   let playableField: number[][] = copyField(grid);
-  let attempt = difficulty;
-  while (attempt > 0) {
+  while (attempt > 0 && difficulty > 0) {
     let row = generateRandom(puzzleSize);
     let col = generateRandom(puzzleSize);
     if (playableField[row][col] !== 0) {
@@ -31,9 +30,11 @@ export function generatePlayableField(grid: number[][], difficulty: number = 7):
       playableField[row][col] = 0;
       numberOfSolutions = 0;
       solveSudoku(playableField);
+      difficulty--
       if (numberOfSolutions !== 1) {
         playableField[row][col] = backup;
         attempt--;
+        difficulty++
       }
     }
   }

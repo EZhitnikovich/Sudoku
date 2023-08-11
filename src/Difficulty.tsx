@@ -1,9 +1,9 @@
 import styles from "./Difficulty.module.css";
 
 const difficulties = [
-  { label: "Easy", value: 1 },
-  { label: "Medium", value: 3 },
-  { label: "Hard", value: 7 },
+  { label: "Easy", value: 25 },
+  { label: "Medium", value: 35 },
+  { label: "Hard", value: 50 },
 ];
 
 type difficultyProps = {
