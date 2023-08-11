@@ -1,0 +1,20 @@
+.row {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.restart {
+    width: 75px;
+    height: 35px;
+    border: 2px solid black;
+    background: none;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.restart:hover {
+    background-color: lightgray;
+}

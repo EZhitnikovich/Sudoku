@@ -3,7 +3,7 @@ import { Stopwatch } from "./stopwatch";
 import { DrawKeyboard } from "./keyboard";
 import { generateField, generateMask, generatePlayableField } from "./field";
 import { useCallback, useState } from "react";
-import keyboardStyle from "./Keyboard.module.css";
+import styles from "./Game.module.css";
 import { ChooseDifficulty } from "./Difficulty";
 
 export function CreateGame() {
@@ -48,11 +48,10 @@ export function CreateGame() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className={styles.row}>
         <ChooseDifficulty setDifficulty={setDifficulty} />
         <button
-          className={keyboardStyle.btn}
-          style={{ width: "75px" }}
+          className={styles.restart}
           onClick={restart}
         >
           Restart
