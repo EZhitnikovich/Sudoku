@@ -44,7 +44,7 @@ export function DrawField({
                   return (
                     <BlockedCell
                       cell={cell}
-                      key={colIndex * rowIndex}
+                      key={colIndex}
                       isSelected={selected}
                     />
                   );
@@ -53,7 +53,7 @@ export function DrawField({
                     <PlayableCell
                       fieldValue={field[rowIndex][colIndex]}
                       isSelected={selected}
-                      key={colIndex * rowIndex}
+                      key={colIndex}
                       playableField={playableField}
                       selectedNumber={selectedNumber}
                       winCheck={winCheck}

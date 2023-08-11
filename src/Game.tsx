@@ -7,7 +7,7 @@ import styles from "./Game.module.css";
 import { ChooseDifficulty } from "./Difficulty";
 
 export function CreateGame() {
-  const [difficulty, setDifficulty] = useState(3);
+  const [difficulty, setDifficulty] = useState(25);
   const [field, setField] = useState(
     useCallback(() => {
       return generateField();

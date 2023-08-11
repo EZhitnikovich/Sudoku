@@ -20,10 +20,13 @@ export function generateField(): number[][] {
   return field;
 }
 
-export function generatePlayableField(grid: number[][], difficulty: number = 7): number[][] {
+export function generatePlayableField(
+  grid: number[][],
+  difficulty: number = 10,
+  attempt: number = 7
+): number[][] {
   let playableField: number[][] = copyField(grid);
-  let attempt = difficulty;
-  while (attempt > 0) {
+  while (attempt > 0 && difficulty > 0) {
     let row = generateRandom(puzzleSize);
     let col = generateRandom(puzzleSize);
     if (playableField[row][col] !== 0) {
@@ -31,9 +34,11 @@ export function generatePlayableField(grid: number[][], difficulty: number = 7):
       playableField[row][col] = 0;
       numberOfSolutions = 0;
       solveSudoku(playableField);
+      difficulty--;
       if (numberOfSolutions !== 1) {
         playableField[row][col] = backup;
         attempt--;
+        difficulty++;
       }
     }
   }
@@ -90,7 +95,12 @@ function generateRandom(max: number): number {
   return Math.floor(Math.random() * max);
 }
 
-function isValid(field: number[][], row: number, col: number, value: number): boolean {
+function isValid(
+  field: number[][],
+  row: number,
+  col: number,
+  value: number
+): boolean {
   for (let i = 0; i < puzzleSize; i++) {
     if (field[row][i] === value || field[i][col] === value) return false;
   }
@@ -108,7 +118,11 @@ function isValid(field: number[][], row: number, col: number, value: number): bo
   return true;
 }
 
-function fillSudoku(grid: number[][], row: number = 0, col: number = 0): boolean {
+function fillSudoku(
+  grid: number[][],
+  row: number = 0,
+  col: number = 0
+): boolean {
   if (row === 9) {
     return true;
   } else if (col === 9) {
